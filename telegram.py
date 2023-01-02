@@ -44,13 +44,17 @@ def send_welcome(message):
         def handle_docs_photo_edit(message):
             text = message.text
             im = Image.open("./img/image.jpg")
+            # размеры фото
+            width, height = im.size
+            heightFix = height - 100
+            widthFix = width / 5
             font = ImageFont.truetype("arial.ttf", 50)
             draw = ImageDraw.Draw(im)
-            indent = 0
+            # indent = 0
             # for i in range(handle_count()):
             for i in range(count):
-                draw.text((0, indent), text,(255,255,255),font=font)
-                indent += 40
+                draw.text((widthFix, heightFix), text,(255,255,255),font=font)
+                # indent += 40
             im.save("./img/image.jpg")
             bot.send_photo(message.chat.id, open("./img/image.jpg", 'rb'))
             # удалить файл
