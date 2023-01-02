@@ -1,6 +1,6 @@
 from yaml import load, CLoader as Loader
 
-def parse_yaml (file: str = "config.yaml") -> dict:
+def parse_yaml (file: str = "config.yaml") -> None:
     try: 
         with open(file, "r") as f:
             config = load(f, Loader = Loader)
@@ -8,6 +8,3 @@ def parse_yaml (file: str = "config.yaml") -> dict:
     except FileNotFoundError:
         print("File not found")
         return None
-
-# получить token из файла
-print(parse_yaml())
